@@ -1,0 +1,14 @@
+upstream example2 {
+    server 127.0.0.1:5000;
+}
+server {
+    server_name w2.example.com;
+    root /data/www/w2.example.com;
+    index index.html;
+
+    autoindex_localtime on;
+    location / {
+        proxy_pass http://example2;
+    }
+}
+
